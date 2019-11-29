@@ -37,7 +37,7 @@ class OrderUpdateSerializer(serializers.ModelSerializer):
         updated_order_items = validated_data.pop('order_items', [])
           
         item_ids = [item.get('id') for item in updated_order_items]
-        print(item_ids)
+
         for id in item_ids:
             try:
                 OrderItems.objects.get(pk=id, order=instance.pk)
