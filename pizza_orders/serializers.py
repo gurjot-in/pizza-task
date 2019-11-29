@@ -24,7 +24,7 @@ class OrderItemsCustomSerializer(serializers.ModelSerializer):
         } 
 
 class OrderUpdateSerializer(serializers.ModelSerializer):
-    order_items = OrderItemsCustomSerializer(many=True, required=True)
+    order_items = OrderItemsCustomSerializer(many=True, required=False)
 
     class Meta:
         model = Order
@@ -34,8 +34,8 @@ class OrderUpdateSerializer(serializers.ModelSerializer):
         if instance.order_status == 'Delivered':
             raise serializers.ValidationError({"order_status": "Order is already delivered, cannot update"})
         
-        updated_order_items = validated_data.pop('order_items', None)
-
+        updated_order_items = validated_data.pop('order_items', [])
+          
         item_ids = [item.get('id') for item in updated_order_items]
         print(item_ids)
         for id in item_ids:
