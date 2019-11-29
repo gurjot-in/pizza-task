@@ -5,5 +5,5 @@ router = DefaultRouter()
 
 router.register(r'customers', views.CustomerViewSet, base_name= 'customers')
 router.register(r'orders', views.OrderViewset, base_name = 'orders')
-router.register(r'order_items', views.OrderItemViewset, base_name = 'order_items')
+router.register(r'order/items', views.OrderItemViewset, base_name = 'order_items')
 urlpatterns = router.urls
