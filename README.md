@@ -135,7 +135,9 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
 ##### Create new order
 
     POST /orders
+    
     Params - JSON 
+    
     {
     "order_items": [
         {
@@ -164,7 +166,8 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
    
    ##### Update existing order
    
-	PUT /orders/<order_id>
+	PUT /orders/<order_id>/
+	
 	Params JSON 
 	(provide order item id you want to update, here in case 9)
 	
@@ -183,13 +186,14 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
 
 ##### Delete existing order
 
-    DELETE /orders/<order_id>
+    DELETE /orders/<order_id>/
 
 ##### Filter  orders based on order status or customer id
 
     GET /orders?order_status=Delivered&customer=1
     
     Response JSON
+    
     [{
         "id": 9,
         "order_items": [
