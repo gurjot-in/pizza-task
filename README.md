@@ -1,3 +1,4 @@
+
 # Pizza Ordering Service!
 
 Docker  19.03.5
@@ -68,6 +69,7 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
  
 
 	GET /customers
+    Status 200  OK
     
     Response JSON
     
@@ -88,6 +90,8 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
 
     POST /customers
     
+    Status 201  Created
+    
     Params JSON
     
     {
@@ -99,6 +103,8 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
  ##### List all orders
 
     GET /orders
+    
+    Status 200  OK
     
     Response JSON
     
@@ -136,6 +142,8 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
 
     POST /orders
     
+    Status 201  Created
+    
     Params - JSON 
     
     {
@@ -168,6 +176,8 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
    
 	PUT /orders/<order_id>/
 	
+	Status 200  OK
+	
 	Params JSON 
 	(provide order item id you want to update, here in case 9)
 	
@@ -187,10 +197,14 @@ Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose
 ##### Delete existing order
 
     DELETE /orders/<order_id>/
+    
+    Status 204  No Content
 
 ##### Filter  orders based on order status or customer id
 
     GET /orders?order_status=Delivered&customer=1
+    
+    Status 200  OK
     
     Response JSON
     
