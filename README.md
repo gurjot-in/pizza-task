@@ -53,8 +53,156 @@ This will install all the dependencies from requirements.txt automatically.
 
 To stop the container `docker-compose stop`
 
+Web server will be running at `http://0.0.0.0:8000/`
 
 ## Debug
 
 Follow [https://docs.docker.com/compose/django/](https://docs.docker.com/compose/django/)
+
+
+## API Doc
+ 
+ HOST - http://0.0.0.0:8000
+ 
+ ##### List all customers
+ 
+
+	GET /customers
+    
+    Response JSON
+    
+    [{
+        "id": 1,
+        "name": "gurjot",
+        "phone_number": "855",
+        "address": null
+    },
+    {
+        "id": 2,
+        "name": "john",
+        "phone_number": "855",
+        "address": null
+    }]
+
+##### Create new customer
+
+    POST /customers
+    
+    Params JSON
+    
+    {
+    "name": "john",
+	"phone_number": "855",
+	"address": "125 Berlin"
+	}
+    
+ ##### List all orders
+
+    GET /orders
+    
+    Response JSON
+    
+    [
+    {
+        "id": 1,
+        "order_items": [
+            {
+                "id": 1,
+                "pizza_flavour": "Marinara",
+                "pizza_size": "Large",
+                "quantity": "10000",
+                "order": 1
+            }
+        ],
+        "order_status": "Pending",
+        "customer": 1
+    },
+    {
+        "id": 2,
+        "order_items": [
+            {
+                "id": 2,
+                "pizza_flavour": "Marinara",
+                "pizza_size": "Large",
+                "quantity": "10000",
+                "order": 2
+            }
+        ],
+        "order_status": "Pending",
+        "customer": 1
+    }]
+
+##### Create new order
+
+    POST /orders
+    Params - JSON 
+    {
+    "order_items": [
+        {
+            "pizza_flavour": "Salami",
+            "pizza_size": "Large",
+            "quantity": "2"
+        },
+        {
+            "pizza_flavour": "Marinara",
+            "pizza_size": "Small",
+            "quantity": "3"
+        },
+        {
+            "pizza_flavour": "Margarita",
+            "pizza_size": "Medium",
+            "quantity": "10"
+        }
+    ],
+    "customer": 1,
+    "order_status": "Pending" 
+    }
+
+
+   
+   
+   
+   ##### Update existing order
+   
+	PUT /orders/<order_id>
+	Params JSON 
+	(provide order item id you want to update, here in case 9)
+	
+    {
+    "order_items": [
+        {
+            "id": 9,
+            "pizza_flavour": "Salami",
+            "pizza_size": "Large",
+            "quantity": "2"
+        }
+    ],
+    "customer": 1,
+    "order_status": "Delivered"
+    }
+
+##### Delete existing order
+
+    DELETE /orders/<order_id>
+
+##### Filter  orders based on order status or customer id
+
+    GET /orders?order_status=Delivered&customer=1
+    
+    Response JSON
+    [{
+        "id": 9,
+        "order_items": [
+            {
+                "id": 11,
+                "pizza_flavour": "Salami",
+                "pizza_size": "Large",
+                "quantity": "2",
+                "order": 9
+            }
+        ],
+        "order_status": "Delivered",
+        "customer": 1
+    }]
+
 
