@@ -1,4 +1,5 @@
 
+
 # Pizza Ordering Service!
 
 Docker  19.03.5
@@ -51,8 +52,8 @@ After setting up docker and docker-compose, go the root directory of this app (w
 Run test cases `docker-compose run web python manage.py test`
 
  Then `docker-compose up`
-
-This will install all the dependencies from requirements.txt automatically.
+ 
+This will install all the dependencies from `requirements.txt`  and run migrations and Django server ***automatically***
 
 To stop the container `docker-compose stop`
 
