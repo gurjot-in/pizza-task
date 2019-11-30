@@ -40,7 +40,9 @@ Build a pizza ordering service with [Django Rest Framework](https://www.django-r
 ## Setup
 
 Install [Docker](https://docs.docker.com/v17.09/engine/installation/)
+
 Install [Docker Compose](https://docs.docker.com/compose/install/)
+
 Check version using `docker --version`
 
 ## How to run app 
