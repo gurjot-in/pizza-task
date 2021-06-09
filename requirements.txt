@@ -1,6 +1,6 @@
 
 # Django
-Django==2.2.7
+Django==2.2.22
 
 # Database
 psycopg2===2.7.3.2
